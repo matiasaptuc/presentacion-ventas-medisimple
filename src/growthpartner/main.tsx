@@ -14,7 +14,6 @@ const laminas: Lamina[] = [
   { titulo: "¿El problema?", contenido: <L.Problema /> },
   { titulo: "Metodología ACR", contenido: <L.Metodologia /> },
   { titulo: "Problemáticas comunes", contenido: <L.Problematicas /> },
-  { titulo: "Resultados promedio", contenido: <L.Promedio /> },
   ...contenido.casos.map((c) => ({ titulo: `Caso: ${c.titulo}`, contenido: <L.CasoExito caso={c} /> })),
   { titulo: "Entendemos el rubro", contenido: <L.Rubro /> },
   { titulo: "Nuestra solución", contenido: <L.Solucion /> },

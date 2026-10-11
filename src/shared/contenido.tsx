@@ -18,11 +18,13 @@ export type Caso = {
 
 const FOTO = "h-40 w-40 rounded-full object-cover object-top";
 const LOGO_CLIENTE = "h-28 rounded-2xl bg-white object-contain p-3";
-const antesDespues = (titulo: string, antes: [string, number], despues: [string, number]) => ({
+const PCT = new Intl.NumberFormat("es-CL", { maximumFractionDigits: 0 });
+/** Antes vs. con MediSimple, mostrado como variación porcentual (sin cifras absolutas). */
+const crecimiento = (titulo: string, antes: number, despues: number) => ({
   titulo,
   barras: [
-    { etiqueta: "Antes", valor: antes[0], n: antes[1] },
-    { etiqueta: "Con MediSimple", valor: despues[0], n: despues[1], destacado: true },
+    { etiqueta: "Antes", valor: "base", n: antes },
+    { etiqueta: "Con MediSimple", valor: `+${PCT.format((despues / antes - 1) * 100)}%`, n: despues, destacado: true },
   ],
 });
 
@@ -37,12 +39,12 @@ export const casoDonoso: Caso = {
     "Sumamos un agente IA que conversa con cada interesado de los anuncios y agenda directo en Reservo — incluso cobra el abono y valida el comprobante antes de confirmar la hora. Con contenido mensual y campañas en Meta, todo conectado a su ficha clínica.",
   // OJO: los +$50M vienen del Playbook; el reporte de resultados (sept. 2026) no mide caja ni cirugías. Confirmar.
   resultado:
-    "+$50.000.000 en honorarios médicos en 3 meses, atribuibles a nuestras estrategias. Pacientes nuevos x2 (de 14 a 28 al mes; 33 en julio y 32 en agosto) con la misma cantidad de leads: la conversión a paciente pasó de 1,9% a 4,5%.",
+    "+$50.000.000 en honorarios médicos en 3 meses, atribuibles a nuestras estrategias. Pacientes nuevos x2 con la misma cantidad de leads: la conversión a paciente pasó de 1,9% a 4,5%.",
   medicion: "Pacientes y conversión medidos en su agenda Reservo y el CRM (ene–ago 2026).",
   imagenes: [{ src: `${CLIENTES}/jose-miguel-donoso.jpg`, alt: "Dr. José Miguel Donoso", clase: FOTO }],
   metricas: [
-    antesDespues("Pacientes nuevos al mes", ["14", 14], ["28", 28]),
-    antesDespues("Leads que llegan a consulta", ["1,9%", 1.9], ["4,5%", 4.5]),
+    crecimiento("Pacientes nuevos al mes", 14, 28),
+    crecimiento("Leads que llegan a consulta", 1.9, 4.5),
   ],
 };
 
@@ -50,12 +52,12 @@ export const casoPorcia: Caso = {
   titulo: "Dr. Mauro Porcia",
   etiqueta: "Growth Partner · Ficha clínica: Medilink",
   problema:
-    "Conectamos el CRM y un agente IA a Medilink: agenda solo, 24/7, ofreciendo únicamente horas realmente disponibles. En su primera semana generó 33 citas sin agendamiento manual del equipo — algunas a la 1 y a las 4 de la madrugada.",
+    "Conectamos el CRM y un agente IA a Medilink: agenda solo, 24/7, ofreciendo únicamente horas realmente disponibles. Desde la primera semana agenda citas sin intervención manual del equipo — incluso a la 1 y a las 4 de la madrugada.",
   resultado:
-    "Caja +87% (de $17,8M a $33,2M al mes) y el doble de pagos (de 42 a 84) frente a los 3 meses previos. Citas válidas +57%, pacientes nuevos x2,4 y costo por lead −60%.",
+    "Caja +87% (de $17,8M a $33,2M al mes) y el doble de pagos frente a los 3 meses previos. Citas válidas +57%, pacientes nuevos x2,4 y costo por lead −60%.",
   medicion: "Medido con los pagos registrados en Medilink, frente a los 3 meses previos.",
   imagenes: [{ src: `${CLIENTES}/dr-mauro-porcia.jpeg`, alt: "Dr. Mauro Porcia", clase: FOTO }],
-  metricas: [antesDespues("Caja al mes", ["$17,8M", 17.8], ["$33,2M", 33.2]), antesDespues("Pagos al mes", ["42", 42], ["84", 84])],
+  metricas: [crecimiento("Caja al mes", 17.8, 33.2), crecimiento("Pagos al mes", 42, 84)],
 };
 
 export const casoRios: Caso = {
@@ -103,12 +105,12 @@ export const casoDermaklinic: Caso = {
   etiqueta: "Dermatología · Ficha clínica: Medilink",
   problema:
     "El foco fue la recurrencia: recordatorios, reactivación y campañas a su base de pacientes, sobre un sistema de agenda y seguimiento ordenado. La base fidelizada se convirtió en el motor de la clínica.",
-  resultado: "Pacientes que vuelven x2,5 (de 134 a 339 al mes), citas +54% (de 503 a 774 al mes) y caja +64%, con asistencia entre 93% y 95%.",
+  resultado: "Pacientes que vuelven x2,5, citas +54% y caja +64%, con asistencia entre 93% y 95%.",
   medicion: "Datos de su ficha clínica (Medilink), en 21 meses de trabajo.",
   imagenes: [{ src: `${CLIENTES}/dermaklinic.webp`, alt: "DermaKlinic", clase: LOGO_CLIENTE }],
   metricas: [
-    antesDespues("Pacientes que vuelven al mes", ["134", 134], ["339", 339]),
-    antesDespues("Citas al mes", ["503", 503], ["774", 774]),
+    crecimiento("Pacientes que vuelven al mes", 134, 339),
+    crecimiento("Citas al mes", 503, 774),
   ],
 };
 
@@ -118,10 +120,10 @@ export const casoUrbamed: Caso = {
   etiqueta: "Urología · CRM: Pipedrive",
   problema:
     "Implementamos un agente IA que precalifica por WhatsApp según diagnóstico, edad y tratamiento, y deriva a cada paciente al urólogo indicado, con seguimiento de cada trato en el CRM.",
-  resultado: "Pacientes nuevos x3 (de 30 a 94 al mes) y valor cerrado mensual triplicado, hasta $105M, en 17 meses.",
+  resultado: "Pacientes nuevos x3 y valor cerrado mensual triplicado, hasta $105M, en 17 meses.",
   medicion: "Tratos ganados y valor cerrado registrados en su CRM (Pipedrive).",
   imagenes: [{ src: `${CLIENTES}/urbamed.webp`, alt: "Urbamed", clase: LOGO_CLIENTE }],
-  metricas: [antesDespues("Pacientes nuevos al mes", ["30", 30], ["94", 94])],
+  metricas: [crecimiento("Pacientes nuevos al mes", 30, 94)],
 };
 
 // Fuente: Wins ("Conversión aumentó de 5% a 18%") y deck anterior. Clínica de urgencias con 4 sucursales.
@@ -134,7 +136,7 @@ export const casoCruzNacional: Caso = {
     "La conversión de interesados a pacientes pasó de 5% a 18%, con un equipo de ventas capacitado y trazabilidad completa del flujo de pacientes.",
   medicion: "Conversión medida en su CRM.",
   imagenes: [{ src: `${CLIENTES}/cruz-nacional.png`, alt: "Clínica Cruz Nacional", clase: LOGO_CLIENTE }],
-  metricas: [antesDespues("Conversión a paciente", ["5%", 5], ["18%", 18])],
+  metricas: [crecimiento("Conversión a paciente", 5, 18)],
 };
 
 // ─── Contenido común ────────────────────────────────────────────────────────────────────
@@ -172,19 +174,6 @@ export const compartido = {
     "Se mide en likes y clics: no sabes cuántos pacientes te trae cada $100.000 invertido.",
     "Anuncios, WhatsApp, Instagram, CRM y ficha clínica que no conversan entre sí.",
   ],
-
-  // Fuente: One Pager "Resultados con MediSimple" (corte agosto 2026).
-  promedio: {
-    eyebrow: "Resultados promedio · 4 clientes",
-    kpis: [
-      { valor: "+30%", label: "Citas válidas al mes" },
-      { valor: "+69%", label: "Pacientes al mes" },
-      { valor: "+106%", label: "Pacientes nuevos al mes" },
-      { valor: "+39%", label: "Citas asistidas al mes" },
-      { valor: "+54%", label: "Caja mensual*" },
-    ],
-    nota: "Urbamed, DermaKlinic, Dr. Mauro Porcia y Dr. José Miguel Donoso, con 4 a 21 meses de servicio. Primeros 3 meses con MediSimple vs. últimos 3 meses cerrados (agosto 2026), leídos desde su agenda y CRM. *Caja: los 2 clientes cuya ficha clínica expone pagos.",
-  },
 
   logosClientes: [
     "belanova-estetica.png",

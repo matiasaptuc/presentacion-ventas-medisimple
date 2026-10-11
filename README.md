@@ -12,7 +12,7 @@ Ambos usan las mismas láminas y el mismo diseño. Basados en el Playbook de Not
 
 ## Dónde se edita
 
-- **Contenido común** (quiénes somos, misión, problemáticas, resultados promedio, servicios, agentes IA, bonuses, logos de clientes y la biblioteca de casos): `src/shared/contenido.tsx`.
+- **Contenido común** (quiénes somos, misión, problemáticas, servicios, agentes IA, bonuses, logos de clientes y la biblioteca de casos): `src/shared/contenido.tsx`.
 - **Contenido de cada plan** (casos elegidos, preguntas, proceso, qué incluye, FAQ): `src/acr/contenido.ts` y `src/growthpartner/contenido.ts`.
 - **Lámina de inversión** de cada plan: `src/acr/Inversion.tsx` y `src/growthpartner/Inversion.tsx` (los precios están en el `contenido.ts` de cada plan).
 - **Orden de las láminas:** `src/acr/main.tsx` y `src/growthpartner/main.tsx`.

@@ -139,31 +139,6 @@ export const Problematicas = () => {
   );
 };
 
-export const Promedio = () => {
-  const C = useContenido();
-  return (
-    <Slide dark>
-      <Eyebrow>{C.promedio.eyebrow}</Eyebrow>
-      <div className="mt-3">
-        <TituloDark>
-          Lo que cambia con <Grad>MediSimple</Grad>
-        </TituloDark>
-      </div>
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {C.promedio.kpis.map((k) => (
-          <div key={k.label} className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center">
-            <p className="text-5xl font-bold tracking-tight md:text-6xl">
-              <Grad>{k.valor}</Grad>
-            </p>
-            <p className="mt-3 text-[13px] font-semibold uppercase tracking-[0.12em] text-gray-300">{k.label}</p>
-          </div>
-        ))}
-      </div>
-      <p className="mt-8 max-w-4xl text-sm leading-relaxed text-gray-500">{C.promedio.nota}</p>
-    </Slide>
-  );
-};
-
 /** Barras de antes/después de un caso (mismo lenguaje visual que la calculadora). */
 function Metricas({ metricas }: { metricas: Caso["metricas"] }) {
   return (
