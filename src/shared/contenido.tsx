@@ -54,7 +54,7 @@ export const casoPorcia: Caso = {
   problema:
     "Conectamos el CRM y un agente IA a Medilink: agenda solo, 24/7, ofreciendo únicamente horas realmente disponibles. Desde la primera semana agenda citas sin intervención manual del equipo — incluso a la 1 y a las 4 de la madrugada.",
   resultado:
-    "Caja +87% (de $17,8M a $33,2M al mes) y el doble de pagos frente a los 3 meses previos. Citas válidas +57%, pacientes nuevos x2,4 y costo por lead −60%.",
+    "Caja +87% y el doble de pagos frente a los 3 meses previos. Citas válidas +57%, pacientes nuevos x2,4 y costo por lead −60%.",
   medicion: "Medido con los pagos registrados en Medilink, frente a los 3 meses previos.",
   imagenes: [{ src: `${CLIENTES}/dr-mauro-porcia.jpeg`, alt: "Dr. Mauro Porcia", clase: FOTO }],
   metricas: [crecimiento("Caja al mes", 17.8, 33.2), crecimiento("Pagos al mes", 42, 84)],

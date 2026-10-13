@@ -249,7 +249,7 @@ export const Brecha = () => (
       Lo que hoy queda <Mark>sobre la mesa</Mark>
     </TituloLight>
     <p className="mt-3 max-w-3xl text-base text-body md:text-lg">
-      Tres palancas que se multiplican. Movámoslas con tus números mientras conversamos.
+      Simulemos con tus números: mueve cada pilar mientras conversamos.
     </p>
     <div className="mt-6">
       <Calculadora />
