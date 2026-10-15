@@ -15,7 +15,7 @@ const PRESENTACIONES = [
     href: "/growthpartner",
     nombre: "Growth Partner",
     para: "Para profesionales y clínicas de 1 a 2 profesionales",
-    puntos: ["Sin pago de implementación", "Go live en 4 semanas", "Fijo mensual + % de la venta"],
+    puntos: ["Sin pago de implementación", "Go live en 4 semanas", "Fijo mensual + % del honorario médico"],
   },
 ];
 

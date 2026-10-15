@@ -22,7 +22,7 @@ Ambos usan las mismas láminas y el mismo diseño. Basados en el Playbook de Not
 ## Durante la presentación
 
 - `←` `→` o espacio para avanzar, `M` abre el menú de láminas.
-- **Clic en el logo de la lámina "Inversión" (solo Growth Partner):** muestra la opción sin variable y el % sobre honorario médico (no se ofrecen de entrada).
+- **Clic en el logo de la lámina "Inversión" (solo Growth Partner):** muestra la opción sin variable y el % sobre el precio que paga el paciente (no se ofrecen de entrada). Por defecto, el % se calcula sobre el honorario médico.
 - La calculadora ACR acepta los números del prospecto por URL, por ejemplo `/acr?int=400&pac=12&ticket=1500000&a=15&c=20&r=10` (interesados al mes, pacientes al mes, ticket promedio y % de mejora en Adquisición, Conversión y Recurrencia). Igual en `/growthpartner`.
 - Si la pantalla es baja, cada lámina se escala sola para verse completa sin scrollear.
 

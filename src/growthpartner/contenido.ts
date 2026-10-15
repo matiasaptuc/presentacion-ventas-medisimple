@@ -60,7 +60,7 @@ export const contenido: Contenido = {
     },
     {
       t: "Alineados a tu resultado",
-      d: "En Growth Partner, parte de lo que cobramos depende de la venta que generamos contigo. Si tú no creces, nosotros tampoco.",
+      d: "En Growth Partner, parte de lo que cobramos depende de los honorarios que generamos contigo. Si tú no creces, nosotros tampoco.",
     },
   ],
 
@@ -138,7 +138,7 @@ export const contenido: Contenido = {
     pasos: compartido.medicionPasos,
     caja: {
       t: "Es un piso, no un techo",
-      d: "No todo el efecto del marketing se puede medir, así que solo cuenta lo que se puede trazar. Tú y nosotros vemos los mismos números, y los revisamos juntos cada mes.",
+      d: "El % se aplica sobre tu honorario médico, sin pabellón, insumos ni otros costos. Y no todo el efecto del marketing se puede medir, así que solo cuenta lo que se puede trazar. Tú y nosotros vemos los mismos números, y los revisamos juntos cada mes.",
     },
   },
 
@@ -153,7 +153,7 @@ export const contenido: Contenido = {
       { t: "¿Qué pago aparte?", d: "Tu inversión en anuncios, el consumo de mensajes del CRM, el hosting de landings y el acceso API de tu ficha clínica." },
       { t: "¿El CRM tiene costo mensual?", d: "No, mientras trabajemos juntos. Solo pagas el consumo de mensajes (WhatsApp, SMS, correo) que uses." },
       { t: "¿Y si uso otra ficha clínica?", d: "Integramos AgendaPro, Dentalink, Medilink y Reservo. Si usas otra, trabajamos con tu registro de citas." },
-      { t: "¿Cómo se paga?", d: "Mensualidad por Flow o transferencia. El % se calcula cada mes con la venta atribuible." },
+      { t: "¿Cómo se paga?", d: "Mensualidad por Flow o transferencia. El % se calcula cada mes sobre tu honorario médico atribuible." },
     ],
   },
 };
@@ -161,25 +161,26 @@ export const contenido: Contenido = {
 export const inversion = {
   eyebrow: "Inversión",
   nombre: "Growth Partner",
-  intro: "Mismo servicio en las tres: cambia cuánto va fijo y cuánto va alineado a tu venta.",
+  intro: "Mismo servicio en las tres: cambia cuánto va fijo y cuánto va alineado a tu resultado.",
+  // variable: % sobre el honorario médico (por defecto). precio: % sobre el precio que paga el paciente (alternativa).
   opciones: [
-    { nombre: "Variable", fijo: "$640.000", variable: "8%", honorario: "10%", desc: "Menor fijo mensual, mayor alineación al resultado." },
+    { nombre: "Variable", fijo: "$640.000", variable: "10%", precio: "8%", desc: "Menor fijo mensual, mayor alineación al resultado." },
     {
       nombre: "Equilibrado",
       fijo: "$840.000",
-      variable: "5%",
-      honorario: "6%",
+      variable: "6%",
+      precio: "5%",
       desc: "El punto medio: fijo moderado y variable acotado.",
       destacado: true,
     },
-    { nombre: "Fijo", fijo: "$1.040.000", variable: "2%", honorario: "2%", desc: "Mayor fijo, variable mínimo: máxima previsibilidad." },
+    { nombre: "Fijo", fijo: "$1.040.000", variable: "2%", precio: "2%", desc: "Mayor fijo, variable mínimo: máxima previsibilidad." },
   ],
   // Se muestra solo al hacer clic en el logo (no se ofrece de entrada).
-  sinVariable: { nombre: "Sin variable", fijo: "$1.240.000", desc: "Solo fijo mensual, sin porcentaje sobre la venta." },
-  neto: "de la venta atribuible",
+  sinVariable: { nombre: "Sin variable", fijo: "$1.240.000", desc: "Solo fijo mensual, sin porcentaje variable." },
+  neto: "del honorario médico atribuible",
   nota: "al mes + IVA · no incluye inversión en anuncios",
-  honorarioNota:
-    "El % se calcula sobre el precio que paga el paciente. Si lo acordamos, puede calcularse sobre tu honorario médico (sin pabellón ni insumos).",
+  precioNota:
+    "El % se calcula sobre tu honorario médico: la parte que te corresponde, sin pabellón, insumos ni otros costos. Si lo acordamos, puede calcularse sobre el precio que paga el paciente.",
   incluyeTitulo: "Incluido en las tres opciones",
   incluye: [
     "Guiones, grabación y edición de videos",

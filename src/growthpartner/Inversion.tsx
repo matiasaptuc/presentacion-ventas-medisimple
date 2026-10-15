@@ -4,10 +4,10 @@ import { inversion } from "./contenido";
 
 export const Inversion = () => {
   const d = inversion;
-  // Clic en el logo: muestra lo que no se ofrece de entrada (opción sin variable y % sobre honorario médico).
+  // Clic en el logo: muestra lo que no se ofrece de entrada (opción sin variable y % sobre el precio).
   const [extra, setExtra] = useState(false);
   const opciones = extra
-    ? [...d.opciones, { ...d.sinVariable, variable: null, honorario: null, destacado: false }]
+    ? [...d.opciones, { ...d.sinVariable, variable: null, precio: null, destacado: false }]
     : d.opciones;
   return (
     <Slide dark onLogoClick={() => setExtra((v) => !v)}>
@@ -30,13 +30,13 @@ export const Inversion = () => {
             {o.variable ? (
               <>
                 <p className="mt-2 text-2xl font-bold text-[#4bacff]">
-                  + {o.variable} <span className="text-sm font-semibold uppercase tracking-wide text-gray-400">{d.neto}</span>
+                  + {o.variable} <span className="mt-0.5 block text-sm font-semibold uppercase tracking-wide text-gray-400">{d.neto}</span>
                 </p>
-                {extra && <p className="precio-pop mt-1 text-[12px] text-gray-500">o {o.honorario} sobre honorario médico</p>}
+                {extra && <p className="precio-pop mt-1 text-[12px] text-gray-500">o {o.precio} sobre el precio que paga el paciente</p>}
               </>
             ) : (
               <p className="mt-2 text-2xl font-bold text-[#4bacff]">
-                Sin % <span className="text-sm font-semibold uppercase tracking-wide text-gray-400">sobre la venta</span>
+                Sin % <span className="mt-0.5 block text-sm font-semibold uppercase tracking-wide text-gray-400">variable</span>
               </p>
             )}
             <p className="mt-3 text-[10px] font-medium uppercase tracking-wide text-gray-600">{d.nota}</p>
@@ -44,7 +44,7 @@ export const Inversion = () => {
           </div>
         ))}
       </div>
-      {extra && <p className="mt-3 text-center text-[12px] leading-snug text-gray-500">{d.honorarioNota}</p>}
+      {extra && <p className="mt-3 text-center text-[12px] leading-snug text-gray-500">{d.precioNota}</p>}
       <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500">{d.incluyeTitulo}</p>
       <ul className="mt-2 grid gap-x-8 gap-y-1.5 sm:grid-cols-2 lg:grid-cols-4">
         {d.incluye.map((t) => (
